@@ -42,7 +42,6 @@ export const experiences = [
     status: "Full-time",
     period: "09/2025 — Present",
     location: "Paris, France",
-    // Add the logo to /public/companies/engie.webp
     logo: "./companies/engie.webp",
     website: "https://www.engie.com",
     summary:
@@ -168,7 +167,6 @@ export const experiences = [
     status: "Apprenticeship",
     period: "09/2023 — 09/2025",
     location: "Paris, France",
-    // Add the logo to /public/companies/sncf.webp
     logo: "./companies/sncf.webp",
     website: "https://www.sncf-reseau.com",
     summary:
@@ -244,7 +242,7 @@ export const experiences = [
     role: "Software Developer",
     company: "Mozilla",
     status: "Internship",
-    period: "07/2023 — 09/2023",
+    period: "02/2023 — 08/2023",
     location: "Remote",
     logo: "./companies/mozilla.webp",
     website: "https://www.mozilla.org",
@@ -259,37 +257,6 @@ export const experiences = [
           "Improved team efficiency by automating bug-tracking workflows and integrating with Java-based pipelines.",
         ],
         technologies: ["Java", "Maven", "SonarQube", "Jenkins", "Git / GitLab"],
-      },
-    ],
-  },
-  {
-    role: "Web Developer",
-    company: "Algorithmic Laboratory (LACL) — UPEC",
-    status: "Internship",
-    period: "04/2023 — 07/2023",
-    location: "Créteil, France",
-    logo: "./companies/lacl.webp",
-    website: "https://lacl.fr",
-    projects: [
-      {
-        title: "Remote Examination Module for the University Platform",
-        description:
-          "End-of-degree internship developing a key module for the Computer Science department's educational platform, enabling students to take exams remotely and giving teachers tools to grade exams and communicate with students.",
-        responsibilities: [
-          "Developed a remote examination feature to take exams online, submit answers, and receive feedback.",
-          "Built a teacher dashboard to analyze exam data through KPIs and statistical analysis.",
-          "Integrated a messaging system to facilitate student-teacher interaction during and after exams.",
-          "Collaborated with the research team to align development with academic needs and technical standards.",
-        ],
-        technologies: [
-          "Node.js",
-          "Express.js",
-          "React.js",
-          "MongoDB",
-          "Git / GitLab",
-          "Jest",
-          "JSDoc",
-        ],
       },
     ],
   },
@@ -321,37 +288,6 @@ export const experiences = [
           "PostgreSQL",
           "Git / GitLab",
           "Figma",
-        ],
-      },
-    ],
-  },
-  {
-    role: "Freelance Web Developer & Designer",
-    company: "Freelance (via Fiverr)",
-    status: "Freelance",
-    period: "2021 — 2023",
-    location: "Remote",
-    logo: "./companies/freelance.webp",
-    projects: [
-      {
-        title: "Web Applications & Branding for Various Clients",
-        description:
-          "Collaborated with various clients on diverse web development projects, specializing in dynamic web applications built with modern frameworks and tailored to client requirements.",
-        responsibilities: [
-          "Developed responsive web applications for an optimal cross-device user experience.",
-          "Built backend services and managed databases to create full-stack solutions.",
-          "Designed branding elements, including logos and portfolios, to meet client needs.",
-          "Emphasized communication and collaboration, resulting in successful deliveries and satisfied clients.",
-        ],
-        technologies: [
-          "Next.js",
-          "React.js",
-          "Node.js",
-          "Express.js",
-          "MongoDB",
-          "Git",
-          "Figma",
-          "Turbologo",
         ],
       },
     ],
