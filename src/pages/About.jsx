@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ClaudeLogo from "../components/ClaudeLogo";
-import { LinkedIn, Credly, ArrowRight } from "../components/Icons";
+import { LinkedIn, Credly, ArrowRight, ExternalLink } from "../components/Icons";
 import { profile, about, experiences, education } from "../data/content";
 
 function Avatar() {
@@ -14,7 +14,7 @@ function Avatar() {
           src={profile.photo}
           alt={profile.name}
           onError={() => setFailed(true)}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-bottom"
         />
       ) : (
         <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-clay-400 to-clay-600 font-serif text-4xl font-bold text-white">
@@ -31,6 +31,56 @@ function SectionHeader({ children }) {
       <ClaudeLogo className="h-5 w-5 text-clay-500" />
       <h2 className="eyebrow text-sm">{children}</h2>
     </div>
+  );
+}
+
+// Small timeline logo for companies/schools. Falls back to initials and
+// links to the official website when available.
+function TimelineLogo({ name, logo, website }) {
+  const [broken, setBroken] = useState(false);
+  const initials = name
+    .replace(/\(.*?\)/g, "")
+    .split(/[\s—-]+/)
+    .filter((w) => /^[A-Za-zÀ-ÿ]/.test(w))
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+
+  const content =
+    logo && !broken ? (
+      <img
+        src={logo}
+        alt={name}
+        onError={() => setBroken(true)}
+        className="h-full w-full object-cover"
+      />
+    ) : (
+      <span className="font-serif text-xs font-bold text-clay-500">
+        {initials}
+      </span>
+    );
+
+  const base =
+    "absolute -left-[54px] top-0 flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-cream-300 bg-cream-50 shadow-soft";
+
+  if (!website) {
+    return <span className={base}>{content}</span>;
+  }
+
+  return (
+    <a
+      href={website}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${name} — official website`}
+      className={`group ${base} transition hover:-translate-y-0.5 hover:shadow-lift`}
+    >
+      {content}
+      <span className="absolute inset-0 flex items-center justify-center bg-clay-500/90 text-white opacity-0 transition group-hover:opacity-100">
+        <ExternalLink className="h-4 w-4" />
+      </span>
+    </a>
   );
 }
 
@@ -92,9 +142,11 @@ export default function About() {
           <div className="relative space-y-6 border-l border-cream-300 pl-8">
             {experiences.map((exp) => (
               <article key={exp.company + exp.period} className="relative">
-                <span className="absolute -left-[41px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-cream-100 ring-1 ring-cream-300">
-                  <ClaudeLogo className="h-3.5 w-3.5 text-clay-500" />
-                </span>
+                <TimelineLogo
+                  name={exp.company}
+                  logo={exp.logo}
+                  website={exp.website}
+                />
                 <div className="rounded-xl2 border border-cream-300 bg-white p-6 shadow-soft">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="text-lg font-semibold text-clay-600">
@@ -128,9 +180,11 @@ export default function About() {
           <div className="relative space-y-6 border-l border-cream-300 pl-8">
             {education.map((ed) => (
               <article key={ed.school} className="relative">
-                <span className="absolute -left-[41px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-cream-100 ring-1 ring-cream-300">
-                  <ClaudeLogo className="h-3.5 w-3.5 text-clay-500" />
-                </span>
+                <TimelineLogo
+                  name={ed.school}
+                  logo={ed.logo}
+                  website={ed.website}
+                />
                 <div className="rounded-xl2 border border-cream-300 bg-white p-6 shadow-soft">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="text-lg font-semibold text-clay-600">
