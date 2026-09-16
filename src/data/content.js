@@ -19,7 +19,7 @@ export const profile = {
     "From ideas to production, one problem at a time.",
     "Making software smarter, cleaner, and a little less boring.",
   ],
-  photo: "",
+  photo: "profile.webp",
   resumeUrl: "./resume.zip",
   socials: {
     linkedin: "https://www.linkedin.com/in/abdelghani-hireche/",
